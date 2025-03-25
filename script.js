@@ -32,11 +32,7 @@ document.getElementById("next").addEventListener("click", function () {
     fetchNews(page);
 });
 document.getElementById("prev").addEventListener("click", function () {
-    page--;
-    fetchNews(page);
-});
-
-
-
-
-
+    if (page > 1) {
+        page--;
+        fetchNews(page);}    
+})
