@@ -1,3 +1,4 @@
+let page = 1;
 async function fetchNews(page) {
     const apiKey = "2ce9d4509a274e8084beb67dcbea821c";
     const url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&apiKey=${apiKey}`;
@@ -22,10 +23,15 @@ async function fetchNews(page) {
         `;
     }
 
-    contentContainer.innerHTML = str;
+    contentContainer.innerHTML += str;
 };
 
-fetchNews();
+fetchNews(page);
+document.getElementById("load-more").addEventListener("click", function () {
+    page++;
+    fetchNews(page);
+});
+
 
 
 
