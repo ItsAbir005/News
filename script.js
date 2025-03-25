@@ -23,12 +23,16 @@ async function fetchNews(page) {
         `;
     }
 
-    contentContainer.innerHTML += str;
+    contentContainer.innerHTML = str;
 };
 
 fetchNews(page);
-document.getElementById("load-more").addEventListener("click", function () {
+document.getElementById("next").addEventListener("click", function () {
     page++;
+    fetchNews(page);
+});
+document.getElementById("prev").addEventListener("click", function () {
+    page--;
     fetchNews(page);
 });
 
