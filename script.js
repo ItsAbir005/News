@@ -40,4 +40,3 @@ document.getElementById("prev").addEventListener("click", function () {
 
 
 
-
