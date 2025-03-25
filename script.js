@@ -35,3 +35,9 @@ document.getElementById("prev").addEventListener("click", function () {
     page--;
     fetchNews(page);
 });
+
+
+
+
+
+
