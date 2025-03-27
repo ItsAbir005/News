@@ -1,7 +1,8 @@
 let page = 1;
+const pageSize = 10;
 async function fetchNews(page) {
     const apiKey = "2ce9d4509a274e8084beb67dcbea821c";
-    const url = `https://newsapi.org/v2/top-headlines?country=us&page=${page}&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&page=${page}&apiKey=${apiKey}`;
 
     let response = await fetch(url);
     let data = await response.json();
@@ -9,8 +10,8 @@ async function fetchNews(page) {
 
     let contentContainer = document.querySelector(".content");
     let str = "";
-
-    for (let item of data.articles) {
+    let articles = data.articles.slice(0, pageSize);
+    for (let item of articles) {
         str += `
             <div class="card my-4 mx-2" style="width: 18rem;">
                 <img src="${item.urlToImage}" class="card-img-top" alt="News Image">
