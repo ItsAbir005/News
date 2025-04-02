@@ -1,10 +1,17 @@
 let page = 1;
 const pageSize = 10;
+
 async function fetchNews(page) {
     const apiKey = "2ce9d4509a274e8084beb67dcbea821c";
     const url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&page=${page}&apiKey=${apiKey}`;
 
-    let response = await fetch(url);
+    let response = await fetch(url, {
+        method: "GET",
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+
     let data = await response.json();
     console.log(JSON.stringify(data));
 
@@ -25,15 +32,18 @@ async function fetchNews(page) {
     }
 
     contentContainer.innerHTML = str;
-};
+}
 
 fetchNews(page);
+
 document.getElementById("next").addEventListener("click", function () {
     page++;
     fetchNews(page);
 });
+
 document.getElementById("prev").addEventListener("click", function () {
     if (page > 1) {
         page--;
-        fetchNews(page);}    
-})
+        fetchNews(page);
+    }
+});
