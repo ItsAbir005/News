@@ -2,8 +2,8 @@ let page = 1;
 const pageSize = 10;
 
 async function fetchNews(page) {
-    const apiKey = "2ce9d4509a274e8084beb67dcbea821c";
-    const url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&page=${page}&apiKey=${apiKey}`;
+    const apiKeey = "2ce9d4509a274e8084beb67dcbea821c";
+    const url = `https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&page=${page}&apiKey=${apiKeey}`;
 
     let response = await fetch(url, {
         method: "GET",
